@@ -175,6 +175,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ChapterSeven.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ChapterSix.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\LearnCpp.cpp"
 				>
 			</File>
@@ -209,6 +217,18 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ChapterSeven.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ChapterSix.h"
+				>
+			</File>
+			<File
+				RelativePath=".\resource.h"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.h"
 				>
 			</File>
@@ -222,6 +242,10 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\LearnCpp.rc"
+				>
+			</File>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"

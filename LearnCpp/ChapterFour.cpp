@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include <assert.h>
+#include "assert.h"
 #include "ChapterFour.h"
 
 
@@ -24,7 +24,7 @@ void newDynamicStruct(void);
 
 void practice(void);
 void exercize5(void);
-int main(int argc, char* argv[])
+int main2(int argc, char* argv[])
 {
 	basic();
 	structBasic();
@@ -38,6 +38,7 @@ int main(int argc, char* argv[])
 
 	practice();
 	exercize5();
+	return 0;
 
 }
 void exercize5(void)
