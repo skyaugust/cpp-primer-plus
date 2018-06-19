@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "ChapterSeven.h"
 #include <assert.h>
+#include <string>
+#include <map>
+
 
 ChapterSeven::ChapterSeven(void)
 {
@@ -26,6 +29,11 @@ namespace chpterSeven
 	{
 		double distance;
 		double angle;
+	};
+
+	struct boss
+	{
+		char name[20];
 	};
     void functionAndArray(void);
 	/**
@@ -62,7 +70,38 @@ namespace chpterSeven
 	}
 	double compute1(double x);
 	double compute2(double x);
+	 //1. 声明原型，定义，调用
+	 void igor(void);
+	 float tofu(int);
+	 double mpg(double, double);
+	 long summation(long arr[], int size);
+	 using namespace std;
+	 double doctor(const string str);
+	 void ofcourse(boss * p_boss);
+	 //char * plot(map * p_map); 
 	
+	void excercize711(void);
+	void set_same_value(int * arr, int size, int value);
+	void set_same_value(int * head, int * tail_next, int value);
+	double max(const double * arr, const int size);
+	int factorial(int n)
+	{
+		if (n == 1) return 1;
+		else
+		{
+			return n * factorial(n - 1);
+		}
+	}
+	/**
+	* replace all c2 in str to c1, and return the replaced times;
+	*/
+	int replace(char * str, char c1, char c2);
+	int judge(int (*pf)(const char *));
+	double calculate(double x, double y, double(*pf)(double, double));
+
+	double add(double x, double y);
+	double minus_(double x, double y);
+	double multiply(double x, double y);
 }
 int main(int argc, char* argv[])
 {
@@ -71,8 +110,7 @@ int main(int argc, char* argv[])
 	functionAndArray();
 	int arr[8] = {0,0,0,0,0,0,0,0};
 	int i = fill_arr(arr, 5);
-	cout << i << endl;
-
+	cout << i << endl; 
 	int data[3][4] = { {1,2,3,4},{9,8,7,6},{2,4,6,8} };
 	assert(sum_arr_tow_dimen(data, 3) == 60);
 	funcAndCstyleString();
@@ -91,6 +129,28 @@ int main(int argc, char* argv[])
 	pf_countDown = countDown;
 	estimate(1, compute1);
 	estimate(2, compute2);
+	int arr_int[5] = { 9,3,5,6,3 };
+	set_same_value(arr_int, 5, 42);
+	for (int i = 0; i < 5; i++) {
+	    assert(arr_int[i] == 42);
+	}
+	int * tail_next = arr_int + 5;
+	set_same_value(arr_int, tail_next, 43);
+	for (int i = 0; i < 5; i++)
+	{
+		assert(arr_int[i] == 43);
+	}
+	excercize711();
+	assert(factorial(5) == 120);
+	double x = 2;
+	double y = 3;
+	double(*pf_cal[3])(double, double) = {add, minus_, multiply};
+	for (int i = 0; i < 3; i++)
+	{
+		cout << calculate(x, y, pf_cal[i]) << endl;
+	}
+	
+
 	return 0;
 }
 
@@ -105,6 +165,75 @@ namespace chpterSeven
 	{
 		for (int i = 0; i < 1000000; i++);
 		return 0.0;
+	}
+	void excercize711(void)
+	{
+	
+		double arr[5] = { 1.0,5.0,3.0,5362.0,685.0 };
+		int size = 5;
+		assert(max(arr, size) == arr[3]);
+		char str[] = "zhang shan";
+		assert(replace(str, 'a', 'e') == 2);
+		assert(strcmp(str, "zheng sen") == 1);
+		char p = *"pizza";
+		char t = "taco"[2];
+	}
+	void set_same_value(int * arr, int size, int value)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			arr[i] = value;
+		}
+	}
+	void set_same_value(int * head, int * tail_next, int value)
+
+	{
+		int size = tail_next - head;
+		set_same_value(head, size, value);
+	}
+	double max(const double * arr, const int size)
+	{
+		double max = arr[0];
+		for (int i = 1; i < size; i++)
+		{
+			if (arr[i] > max) 
+			{
+				max = arr[i];
+			}
+		}
+		
+		return max;
+	}
+	int replace(char * str, char c1, char c2)
+	{
+		int count = 0;
+		while (*str)
+		{
+			if (*str == c1)
+			{
+				*str = c2;
+				count++;
+			}
+			str++;
+		}
+		return count;
+	}
+	double calculate(double x, double y, double(*pf)(double, double))
+	{
+		
+		return pf(x, y);
+	}
+	double add(double x, double y)
+	{
+		return x + y;
+	}
+	double minus_(double x, double y)
+	{
+		return x - y;
+	}
+	double multiply(double x, double y)
+	{
+		return x * y;
 	}
 	void paintRuler()
 	{
