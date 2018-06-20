@@ -103,7 +103,7 @@ namespace chpterSeven
 	double minus_(double x, double y);
 	double multiply(double x, double y);
 }
-int main(int argc, char* argv[])
+int main7(int argc, char* argv[])
 {
 	using namespace std;
 	using namespace chpterSeven;
